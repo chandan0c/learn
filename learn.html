@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            padding: 10px;
+            display: flex;
+            margin: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            flex-wrap: wrap;
+            background-color: aliceblue;
+        }
+        button pre{
+            display: flex;
+            width: 70%;
+            flex-wrap: wrap;
+
+        }
+    </style>
+</head>
+<body>
+    <button onclick="myfun(event)" id="scope" value="chandan">Scope</button>
+    <button onclick="myfun(event)" id="hoisting">Hoistnig</button>
+    <button onclick="myfun(event)" id="constructor">Constructor Function</button>
+    <button onclick="myfun(event)" id="prototype">Prototype</button>
+</body>
+</html>
+<script>
+    let scope="Scope determines the accessibility (visibility) of variables.<br>JavaScript has 3 types of scope:<br>Block scope <br>Function scope<br>Global scope"
+    localStorage.setItem("scope",scope);
+    let hoisting="In JavaScript, a variable can be declared after it has been used.<br>In other words; a variable can be used before it has been declared."
+    localStorage.setItem("hoisting",hoisting);
+    let constructor="constructor is bascically a object prototype <br> constructor help us in creating new object"
+    localStorage.setItem("constructor",constructor);
+    let prototype="All JavaScript objects inherit properties and methods from a prototype.<br>To add a new property to a constructor, you must add it to the constructor function:"
+    localStorage.setItem("prototype",prototype);
+    let p=document.createElement("p")
+    function myfun(e){
+        let val=e.target.id;
+        let localData=localStorage.getItem(val);
+        p.innerHTML=localData;
+        document.getElementById(val).appendChild(p);
+    }
+</script>
